@@ -22,7 +22,7 @@ public abstract class Conection {
     private static final String USER = "root"; 
     private static final String PASSWORD = "";
     
-    public Connection getConnection(){
+    public static Connection getConnection(){
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASSWORD);
@@ -62,10 +62,5 @@ public abstract class Conection {
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao Fechar conexão");
         }
-    }
-    
-    
-    
-    
-    
+    }  
 }

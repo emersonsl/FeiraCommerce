@@ -5,6 +5,10 @@
  */
 package main;
 
+import model.DAO.PointDAO;
+import model.DAO.SpatialObjectDAO;
+import model.bean.Point;
+import model.bean.SpatialObject;
 import tools.Bot;
 
 /**
@@ -18,6 +22,13 @@ public class FeiraCommerce {
      */
     public static void main(String[] args) {
         Bot.downloadFile();
+        Bot.changeData("FeiraDeSantana.osm");
+        
+        Point p = new Point(1,1.0,1.0);
+        SpatialObject sp = new SpatialObject("nome", "tipo", p);
+        //SpatialObjectDAO.create(sp);
+        
+        
     }
     
 }

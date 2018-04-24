@@ -5,16 +5,18 @@
  */
 package tools;
 
-import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.stream.XMLStreamException;
+import model.DAO.SpatialObjectDAO;
+import model.bean.SpatialObject;
 
 /**
  *
@@ -41,6 +43,20 @@ public class Bot {
         } catch (IOException ex1) {
             throw new RuntimeException("Erro no download dos arquivos de base");
         }
+    }
+    
+    public static void changeData(String nameFile){
+        try {
+            salveData(Parser.extractData(nameFile));
+        } catch (FileNotFoundException | XMLStreamException ex) {
+            throw new RuntimeException("Erro ao carregar dados do arquivo");
+        }
+    }
+    
+    private static void salveData(List <SpatialObject> list){
+        list.stream().forEach((sp) -> {
+            SpatialObjectDAO.create(sp);
+        });
     }
     
 }
