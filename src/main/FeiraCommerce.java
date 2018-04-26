@@ -21,14 +21,8 @@ public class FeiraCommerce {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Bot.downloadFile();
+        //Bot.downloadFile();
         Bot.changeData("FeiraDeSantana.osm");
-        
-        Point p = new Point(1,1.0,1.0);
-        SpatialObject sp = new SpatialObject("nome", "tipo", p);
-        //SpatialObjectDAO.create(sp);
-        
-        
     }
     
 }
