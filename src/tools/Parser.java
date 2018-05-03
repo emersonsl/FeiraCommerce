@@ -45,14 +45,11 @@ public class Parser {
                                 Point p = new Point(id, lat, lgt);
                                 sp = new SpatialObject();
                                 sp.setPoint(p);
-                                sp.setId(id);
                                 nodes.put(id, p);
                             }
                             break;
                         case "way":
                             sp = new SpatialObject();
-                            Long idSp = getAttValueLong(parser, "id");
-                            sp.setId(idSp);
                             break;
                         case "nd":
                             if(sp!=null){
