@@ -24,9 +24,9 @@ public class PointDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = c.prepareStatement("INSERT INTO point (id,latitude,longitude) VALUES (?,?,?) ON DUPLICATE KEY UPDATE latitude=VALUES(latitude), longitude=VALUES(longitude)");
+            stmt = c.prepareStatement("INSERT INTO point (id,latitude,longitude) VALUES (?,?,?)");
             
-            stmt.setLong(1, p.getId());
+            stmt.setDouble(1, p.getId());
             stmt.setDouble(2, p.getLatitude());
             stmt.setDouble(3, p.getLongitude());
             
