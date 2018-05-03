@@ -26,7 +26,11 @@ public class Bot {
     
     public static void downloadFile(){
         try {
-            URL mapFSA = new URL("http://www.openstreetmap.org/api/0.6/map?bbox=-39.008%2C-12.3179%2C-38.9149%2C-12.1739");
+            
+            System.setProperty("http.proxyHost", "10.65.16.2");
+            System.setProperty("http.proxyPort", "3128");
+            
+            URL mapFSA = new URL("http://www.openstreetmap.org/api/0.6/map?bbox=-39.03%2C-12.32%2C-38.8878%2C-12.19");
             
             InputStream in = mapFSA.openStream();
             FileOutputStream out = new FileOutputStream("FeiraDeSantana.osm");

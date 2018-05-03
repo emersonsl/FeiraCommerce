@@ -27,7 +27,7 @@ public class SpatialObjectDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = c.prepareStatement("INSERT INTO spatial_object (name,type,point_id) VALUES (?,?,?)");
+            stmt = c.prepareStatement("INSERT INTO spatial_object (name,type,point_id) VALUES (?,?,?) ON DUPLICATE KEY UPDATE name=VALUES(name), type=VALUES(type), point_id=VALUES(point_id)");
             
             stmt.setString(1, sp.getName());
             stmt.setString(2, sp.getType());
